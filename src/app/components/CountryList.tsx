@@ -51,18 +51,15 @@ export default function CountryList({}) {
               />
               <div className="item__text">
                 <h3>{country.name.common}</h3>
-                <div>
-                  <p>
-                    Population:{" "}
-                    <span>{country.population.toLocaleString()}</span>
-                  </p>
-                  <p>
-                    Region: <span>{country.region}</span>
-                  </p>
-                  <p>
-                    Capital: <span>{country.capital}</span>
-                  </p>
-                </div>
+                <p>
+                  Population: <span>{country.population.toLocaleString()}</span>
+                </p>
+                <p>
+                  Region: <span>{country.region}</span>
+                </p>
+                <p>
+                  Capital: <span>{country.capital}</span>
+                </p>
               </div>
               <Link
                 href={`/details/${country.name.common}/`}

@@ -184,13 +184,12 @@ body {
           }
           .item__text {
             padding-inline: 1.5rem;
-            display: grid;
-            gap: 1rem;
             padding-bottom: 3rem;
             h3 {
               font-weight: 800;
+              margin-bottom: 1rem;
             }
-            div {
+            p {
               font-weight: 600;
               span {
                 font-weight: 300;
