@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import CountryList from "./components/CountryList";
 import Filters from "./components/Filters";
 export default function Home() {
@@ -5,8 +6,10 @@ export default function Home() {
     <>
       <main className="main">
         <h1 className="sr-only">Countries List</h1>
-        <Filters />
-        <CountryList />
+        <Suspense>
+          <Filters />
+          <CountryList />
+        </Suspense>
       </main>
     </>
   );
