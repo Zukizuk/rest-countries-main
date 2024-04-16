@@ -1,0 +1,315 @@
+@use "globals" as *;
+
+body {
+  min-height: 100svh;
+  font-family: "Nunito Sans", sans-serif;
+  background-color: var(--bg-color-two);
+  color: var(--text2);
+  header {
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+    background-color: var(--bg-color-one);
+    .header__container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-block: 1.1875rem;
+      padding-inline: 1rem;
+      margin-bottom: 0.1rem;
+      @media (min-width: 64rem) {
+        padding-inline: 2rem;
+      }
+      h2 {
+        font-weight: 800;
+        line-height: normal;
+        font-size: 1.2rem;
+        @media (min-width: 64rem) {
+          font-size: 1.5rem;
+        }
+      }
+      .header__toggle-button {
+        background: transparent;
+        outline: none;
+        border: none;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding-block: 0.5rem;
+        color: var(--text2);
+        svg {
+          vertical-align: middle;
+        }
+        span {
+          font-weight: 700;
+        }
+      }
+    }
+  }
+  .main {
+    padding-block: 1rem;
+    padding-inline: 1rem;
+    margin-inline: auto;
+    background-color: var(--bg-color-two);
+    @media (min-width: 64rem) {
+      padding-inline: 2rem;
+    }
+    .main__filters {
+      margin-top: 3rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 3rem;
+      .filter__search {
+        border-radius: 0.5rem;
+        box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+          0 4px 6px -4px rgb(0 0 0 / 0.1);
+        background-color: var(--bg-color-one);
+        width: 30rem;
+        height: 3.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-left: 2rem;
+        transition: background-color 0.3s ease-in;
+        svg {
+          transition: translate 0.2s ease-in-out;
+        }
+        &:hover {
+          background-color: var(--interactive);
+          svg {
+            translate: -10px 0;
+          }
+        }
+        input {
+          height: 100%;
+          flex: 1;
+          width: 100%;
+          font-size: 0.875rem;
+          line-height: 1.25rem;
+          margin-left: 1.9375rem;
+          padding-right: 0.75rem;
+          padding-block: 1.125rem;
+          background-color: transparent;
+          border: none;
+          outline: none;
+          color: var(--text2);
+          &::placeholder {
+            color: var(--text / 0.7);
+          }
+        }
+      }
+      .filter__select {
+        width: 12.25rem;
+        position: relative;
+        background-color: var(--bg-color-one);
+        border-radius: 0.375rem;
+        z-index: 1000;
+        transition: background-color 0.3s ease-in;
+        &:hover {
+          background-color: var(--interactive);
+        }
+        .select__button {
+          box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+            0 4px 6px -4px rgb(0 0 0 / 0.1);
+          width: 100%;
+          height: 3.5rem;
+          display: flex;
+          border-radius: 0.375rem;
+          align-items: center;
+          justify-content: space-between;
+          padding-inline: 1.5rem;
+          padding-block: 1.125rem;
+          border: none;
+          background-color: transparent;
+          font-weight: 600;
+          color: var(--text2);
+          svg {
+            width: 12px;
+            height: 12px;
+          }
+        }
+        .select__options {
+          position: absolute;
+          box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+            0 4px 6px -4px rgb(0 0 0 / 0.1);
+          background-color: var(--bg-color-one);
+          width: inherit;
+          padding-block: 0.5rem;
+          top: 4rem;
+          display: grid;
+          font-weight: inherit;
+          border-radius: inherit;
+          li {
+            padding-inline: 1.5rem;
+            padding-block: 0.5rem;
+            cursor: pointer;
+            transition: background-color 0.1s ease-in;
+            &:hover {
+              background-color: var(--interactive);
+            }
+          }
+        }
+      }
+    }
+    .result__container {
+      display: grid;
+      .not__found {
+        place-self: center;
+        font-weight: 700;
+        font-size: 1.5rem;
+        line-height: 2rem;
+      }
+      .result {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        @media (min-width: 64rem) {
+          grid-template-columns: repeat(4, minmax(250px, 1fr));
+        }
+        .result__item {
+          background-color: var(--bg-color-one);
+          box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+            0 4px 6px -4px rgb(0 0 0 / 0.1);
+          border-radius: 0.375rem;
+          overflow: hidden;
+          display: grid;
+          gap: 1.75rem;
+          position: relative;
+          transition: background-color 0.3s ease-in;
+          &:has(a:hover) {
+            background-color: var(--interactive);
+          }
+          img {
+            aspect-ratio: 18/11;
+          }
+          .item__text {
+            padding-inline: 1.5rem;
+            display: grid;
+            gap: 1rem;
+            padding-bottom: 3rem;
+            h3 {
+              font-weight: 800;
+            }
+            div {
+              font-weight: 600;
+              span {
+                font-weight: 300;
+              }
+            }
+          }
+          .details__link {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+    }
+  }
+  .details__country {
+    padding-inline: 1rem;
+    margin-bottom: 5rem;
+    @media (min-width: 64rem) {
+      padding-inline: 2rem;
+    }
+    .back__button {
+      padding-inline: 1.5rem;
+      padding-block: 0.5rem;
+      background-color: transparent;
+      border: none;
+      box-shadow: 0px 10px 15px 0px rgb(0 0 0 / 0.1),
+        0px 1px 6px 0px rgb(0 0 0 / 0.1);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-block: 2rem;
+      border-radius: 0.375rem;
+      font-size: 0.875rem;
+      color: var(--text2);
+      svg {
+        transition: translate 0.3s ease-in-out;
+      }
+      &:hover {
+        background-color: var(--interactive);
+        svg {
+          translate: -10px 0;
+        }
+      }
+    }
+    .country__container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+      @media (min-width: 64rem) {
+        flex-direction: row;
+      }
+      .country__image {
+        width: 100%;
+        @media (min-width: 64rem) {
+          width: 50%;
+        }
+      }
+      .country-details__container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        @media (min-width: 64rem) {
+          width: 50%;
+        }
+        span {
+          font-weight: 700;
+        }
+        .country-details__basic {
+          display: flex;
+          justify-content: space-between;
+          flex-direction: column;
+          gap: 2.5rem;
+          @media (min-width: 64rem) {
+            flex-direction: row;
+            gap: unset;
+          }
+          .first__col {
+            display: grid;
+            gap: 1rem;
+          }
+          .last__col {
+            display: grid;
+            @media (min-width: 64rem) {
+              place-content: center;
+            }
+            gap: 1rem;
+          }
+        }
+        .country-details__border {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          gap: 0.5rem;
+          div {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            @media (min-width: 64rem) {
+            }
+            a {
+              color: var(--text2);
+              padding: 0.5rem;
+              border-radius: 0.375rem;
+              box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.1),
+                -1px -1px 2px 2px rgba(0, 0, 0, 0.1);
+              padding-inline: 1rem;
+              &:hover {
+                background-color: var(--interactive);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
