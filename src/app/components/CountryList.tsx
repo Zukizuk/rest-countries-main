@@ -39,7 +39,7 @@ export default function CountryList({}) {
       {countries.length === 0 ? (
         <p className="not__found">No result found</p>
       ) : (
-        <div className="result">
+        <>
           {countries.map((country: Country, index: number) => (
             <li key={index} className="result__item">
               <Image
@@ -69,7 +69,7 @@ export default function CountryList({}) {
               </Link>
             </li>
           ))}
-        </div>
+        </>
       )}
     </ul>
   );
