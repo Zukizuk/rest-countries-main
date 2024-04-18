@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 import SearchBar from "./SearchBar";
 
 export default function Filters() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(true);
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const router = useRouter();
