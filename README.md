@@ -46,7 +46,7 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 ### Links
 
 - Solution URL: [Add solution URL here](https://github.com/Zukizuk/rest-countries-main)
-- Live Site URL: [Add live site URL here](https://rest-countries-main-m5q9.vercel.app/)
+- Live Site URL: (https://rest-countries-main-m5q9.vercel.app/)
 
 ## My process
 
