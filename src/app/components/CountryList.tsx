@@ -40,8 +40,8 @@ export default function CountryList({}) {
         <p className="not__found">No result found</p>
       ) : (
         <>
-          {countries.map((country: Country, index: number) => (
-            <li key={index} className="result__item">
+          {countries.map((country: Country) => (
+            <li key={country.name.common} className="result__item">
               <Image
                 src={country.flags.png}
                 alt={`${country.name.common} Flag`}
